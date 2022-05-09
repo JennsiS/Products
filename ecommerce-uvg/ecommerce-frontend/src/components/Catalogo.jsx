@@ -1,22 +1,24 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-/* eslint-disable jsx-a11y/img-redundant-alt */
-import React from "react";
+import {React, useState} from "react";
 import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Catalogo.scss'
 import prod1 from "../imgs/phone_1.jpg"
 
 export default function Catalogo() {
+  const [products, setProducts] = useState([
+    { id:0 , nombre: 'phone1', precio: 7000, descripcion: 'Phone 1', img: {prod1}, categoria:'tecnologia'},
+    { id:1 , nombre: 'phone2', precio: 8000, descripcion: 'Phone 2', img: {prod1}, categoria:'tecnologia'},
+  ]);
   return (
     <>
       <div className="catalogo">
         <div id=""></div>
-        <Button>PROBANDO</Button>
         <div className="card" alt = "prueba">
-          <img className="card-img-top" src={prod1} alt="Card image cap"/>
+          <img className="card-img-top" src={products[0].img} alt=""/>
           <div className="card-body">
-            <h5 className="card-title">Card title</h5>
-            <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <h5 className="card-title">{products[0].nombre}</h5>
+            <p className="card-text">{products[0].descripcion}</p>
             <a href="#" className="btn btn-primary">Go somewhere</a>
           </div>
         </div>
