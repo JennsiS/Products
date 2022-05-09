@@ -1,10 +1,10 @@
 import logo from './logo.svg';
 import './styles/App.scss';
-import './components/Catalogo'
+import Catalogo from './components/Catalogo';
 
 function App() {
   return (
-    <div className="App">
+    <><div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
@@ -20,6 +20,7 @@ function App() {
         </a>
       </header>
     </div>
+    <Catalogo/></>
   );
 }
 
