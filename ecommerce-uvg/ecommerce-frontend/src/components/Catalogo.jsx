@@ -3,6 +3,7 @@ import {React, useState} from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Catalogo.scss'
 import { FaCartPlus, FaStar } from "react-icons/fa";
+import CHeader from './CHeader';
 
 import prod1 from "../imgs/phone_1.jpg"
 
@@ -14,6 +15,7 @@ export default function Catalogo() {
   ]);
   return (
     <>
+    <CHeader/>
     <div className="catalogo-page">
       <div className="spacer_top"></div>
         <div id="features">
