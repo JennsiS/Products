@@ -1,4 +1,9 @@
-.catalogo{
+.catalogo-page {
+    background-color: rgb(93, 116, 137);
+}
+
+
+.catalogo {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: auto;
@@ -8,4 +13,28 @@
 .card {
     width: 18rem;
     margin: auto;
+    border-radius: 15px;
+}
+
+.card-img-top {
+    border-radius: 15px;
+}
+
+.spacer_top {
+    padding-top: 40px;
+}
+
+.card-wide {
+    padding-bottom: 20px;
+    width: 70%;
+}
+
+#features {
+    padding-bottom: 40px;
+}
+
+#btn-star {
+    margin-left: 10px;
+    background-color: #f1c40f;
+    border-color: #f1c40f;
 }
