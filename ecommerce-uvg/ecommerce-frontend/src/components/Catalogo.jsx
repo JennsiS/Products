@@ -1,7 +1,7 @@
 import React from "react";
 import Button from 'react-bootstrap/Button';
 
-export function Catalogo() {
+export default function Catalogo() {
   return (
     <>
       <div className="catalogo">
