@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './styles/App.scss';
+import './components/Catalogo'
 
 function App() {
   return (
