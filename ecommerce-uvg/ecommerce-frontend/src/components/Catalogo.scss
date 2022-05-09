@@ -1,4 +1,11 @@
-
+.catalogo{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto;
+    gap: 1rem;
+    margin: 0 20px;
+}
 .card {
     width: 18rem;
+    margin: auto;
 }

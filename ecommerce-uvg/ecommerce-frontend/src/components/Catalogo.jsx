@@ -11,8 +11,64 @@ export default function Catalogo() {
   ]);
   return (
     <>
+      <div id=""></div>
       <div className="catalogo">
-        <div id=""></div>
+        <div className="card" alt = "prueba">
+          <img className="card-img-top" src={products[0].img} alt=""/>
+          <div className="card-body">
+            <h5 className="card-title">{products[0].nombre}</h5>
+            <p className="card-text">{products[0].descripcion}</p>
+            <a href="#" className="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+        <div className="card" alt = "prueba">
+          <img className="card-img-top" src={products[0].img} alt=""/>
+          <div className="card-body">
+            <h5 className="card-title">{products[0].nombre}</h5>
+            <p className="card-text">{products[0].descripcion}</p>
+            <a href="#" className="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+        <div className="card" alt = "prueba">
+          <img className="card-img-top" src={products[0].img} alt=""/>
+          <div className="card-body">
+            <h5 className="card-title">{products[0].nombre}</h5>
+            <p className="card-text">{products[0].descripcion}</p>
+            <a href="#" className="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+        <div className="card" alt = "prueba">
+          <img className="card-img-top" src={products[0].img} alt=""/>
+          <div className="card-body">
+            <h5 className="card-title">{products[0].nombre}</h5>
+            <p className="card-text">{products[0].descripcion}</p>
+            <a href="#" className="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+        <div className="card" alt = "prueba">
+          <img className="card-img-top" src={products[0].img} alt=""/>
+          <div className="card-body">
+            <h5 className="card-title">{products[0].nombre}</h5>
+            <p className="card-text">{products[0].descripcion}</p>
+            <a href="#" className="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+        <div className="card" alt = "prueba">
+          <img className="card-img-top" src={products[0].img} alt=""/>
+          <div className="card-body">
+            <h5 className="card-title">{products[0].nombre}</h5>
+            <p className="card-text">{products[0].descripcion}</p>
+            <a href="#" className="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+        <div className="card" alt = "prueba">
+          <img className="card-img-top" src={products[0].img} alt=""/>
+          <div className="card-body">
+            <h5 className="card-title">{products[0].nombre}</h5>
+            <p className="card-text">{products[0].descripcion}</p>
+            <a href="#" className="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
         <div className="card" alt = "prueba">
           <img className="card-img-top" src={products[0].img} alt=""/>
           <div className="card-body">
