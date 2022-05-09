@@ -1,14 +1,13 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import {React, useState} from "react";
-import Button from 'react-bootstrap/Button';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Catalogo.scss'
 import prod1 from "../imgs/phone_1.jpg"
 
 export default function Catalogo() {
   const [products, setProducts] = useState([
-    { id:0 , nombre: 'phone1', precio: 7000, descripcion: 'Phone 1', img: {prod1}, categoria:'tecnologia'},
-    { id:1 , nombre: 'phone2', precio: 8000, descripcion: 'Phone 2', img: {prod1}, categoria:'tecnologia'},
+    { id:0 , nombre: 'phone1', precio: 7000, descripcion: 'Phone 1', img: prod1, categoria:'tecnologia'},
+    { id:1 , nombre: 'phone2', precio: 8000, descripcion: 'Phone 2', img: prod1, categoria:'tecnologia'},
   ]);
   return (
     <>
