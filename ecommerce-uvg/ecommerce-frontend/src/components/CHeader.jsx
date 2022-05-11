@@ -1,6 +1,5 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react"
-import "./CHeader.scss"
+import "../styles/CHeader.scss"
 import logo from "../imgs/logo.png"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { FaGripHorizontal } from "react-icons/fa";
@@ -22,7 +21,7 @@ export default class CHeader extends React.Component {
           <ul className="nav_list">
             <button type="button" id="nav_button"> Contact </button>
           </ul>
-          <a href="#" className="btn btn-primary" id="btn-menu"><FaGripHorizontal/></a>
+          <a href="#ref" className="btn btn-primary" id="btn-menu"><FaGripHorizontal/></a>
         </nav>
       </header>
     )
