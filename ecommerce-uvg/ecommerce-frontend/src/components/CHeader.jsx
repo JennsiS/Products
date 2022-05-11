@@ -2,7 +2,7 @@ import React from "react"
 import "../styles/CHeader.scss"
 import logo from "../imgs/logo.png"
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { FaGripHorizontal } from "react-icons/fa";
+import { FaGripHorizontal, FaShoppingCart, FaStar } from 'react-icons/fa';
 
 export default class CHeader extends React.Component {
   render() {
@@ -21,7 +21,9 @@ export default class CHeader extends React.Component {
           <ul className="nav_list">
             <button type="button" id="nav_button"> Contact </button>
           </ul>
-          <a href="#ref" className="btn btn-primary" id="btn-menu"><FaGripHorizontal/></a>
+          <a href="#ref" className="btn btn-primary iconHeader" id="btn-cart-header"><FaShoppingCart/></a>
+          <a href="#ref" className="btn btn-primary iconHeader" id="btn-star-header"><FaStar/></a>
+          <a href="#ref" className="btn btn-primary" id="btn-menu-header"><FaGripHorizontal/></a>
         </nav>
       </header>
     )

@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import {React, useState} from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/Catalogo.scss'
@@ -48,7 +47,7 @@ export default function Catalogo() {
             <div className="card-body">
               <h5 className="card-title">Peraphone S2</h5>
               <p className="card-text">With supporting text below as a natural lead-in to additional content.</p>
-              <a href="#" className="btn btn-primary"><FaCartPlus/></a>
+              <a href="#ref" className="btn btn-primary"><FaCartPlus/></a>
             </div>
           </div>
         </div>

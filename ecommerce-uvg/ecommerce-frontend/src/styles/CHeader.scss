@@ -86,3 +86,23 @@ button:hover {
     background-color: #707070;
     border-color: #707070;
 }
+
+.iconHeader{
+    color: black;
+    background-color: transparent;
+    border-color: transparent;
+}
+
+#btn-cart-header{
+    position: absolute;
+    right: 10%
+}
+#btn-star-header{
+    position: absolute;
+    right: 15%
+}
+#btn-menu-header{
+    position: absolute;
+    right: 5%
+
+}
