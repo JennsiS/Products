@@ -55,7 +55,7 @@ export default function Catalogo() {
 
       <input type="text" placeholder="Search..." onChange={event => {setSearchTerm(event.target.value)}}/>
         {products.filter((val) => {
-          if (searchTerm ==""){
+          if (searchTerm ===""){
             return setCards(val)
           } else if (val.nombre.toLowerCase().includes(searchTerm.toLocaleLowerCase())){
             return val

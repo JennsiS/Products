@@ -4,8 +4,7 @@ import logo from "../imgs/logo.png"
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { FaGripHorizontal, FaShoppingCart, FaStar } from 'react-icons/fa';
 
-export default class CHeader extends React.Component {
-  render() {
+export default function CHeader(props) {
     return (
       <header id="catalogo_header">
         <nav className="navver">
@@ -14,8 +13,16 @@ export default class CHeader extends React.Component {
           <ul className="nav_list">
             <button type="button" id="nav_button"> Home </button>
             <button type="button" id="nav_button"> Browse </button>
-            <button type="button" id="nav_button"> Menu </button>
-            <button type="button" id="nav_button"> Products </button>
+            <div className="dropdown">
+              <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Categories
+              </button>
+              <div className="dropdown-menu" aria-labelledby="dropdownMenu2">
+                <button className="dropdown-item" type="button">Action</button>
+                <button className="dropdown-item" type="button">Another action</button>
+                <button className="dropdown-item" type="button">Something else here</button>
+              </div>
+            </div>
           </ul>
           <div className="__bar" />
           <ul className="nav_list">
@@ -26,6 +33,5 @@ export default class CHeader extends React.Component {
           <a href="#ref" className="btn btn-primary" id="btn-menu-header"><FaGripHorizontal/></a>
         </nav>
       </header>
-    )
-  }
+    );
 }
