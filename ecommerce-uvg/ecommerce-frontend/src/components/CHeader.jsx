@@ -1,7 +1,6 @@
 import React from "react"
 import "../styles/CHeader.scss"
 import logo from "../imgs/logo.png"
-import 'bootstrap/dist/css/bootstrap.min.css';
 import { FaGripHorizontal, FaShoppingCart, FaStar } from 'react-icons/fa';
 
 export default function CHeader(props) {
@@ -14,15 +13,15 @@ export default function CHeader(props) {
             <button type="button" id="nav_button"> Home </button>
             <button type="button" id="nav_button"> Browse </button>
           </ul>
-            <div className="dropdown">
-            <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Dropdown
+          <div className="dropdown">
+            <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+              Categories
             </button>
-            <div className="dropdown-menu" aria-labelledby="dropdownMenu2">
-              <button className="dropdown-item" type="button">Action</button>
-              <button className="dropdown-item" type="button">Another action</button>
-              <button className="dropdown-item" type="button">Something else here</button>
-            </div>
+            <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <li><a className="dropdown-item" href="#f">Action</a></li>
+              <li><a className="dropdown-item" href="#f">Another action</a></li>
+              <li><a className="dropdown-item" href="#f">Something else here</a></li>
+            </ul>
           </div>
           <div className="__bar" />
           <ul className="nav_list">

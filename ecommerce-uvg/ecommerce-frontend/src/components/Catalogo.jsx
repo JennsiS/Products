@@ -1,5 +1,4 @@
 import {React, useState} from "react";
-import 'bootstrap/dist/css/bootstrap.min.css';
 import '../styles/Catalogo.scss'
 import { FaCartPlus} from 'react-icons/fa';
 import CHeader from './CHeader';
