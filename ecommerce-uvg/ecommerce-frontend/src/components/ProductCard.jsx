@@ -16,7 +16,7 @@ export default function ProductCard(props) {
             <h5 className="card-title">{titulo}</h5>
             <h5 className="card-title">{"$"+ precio}</h5>
             <p className="card-text">{descripcion}</p>
-            <a href="#ref" className="btn btn-primary" onClick={AddToCart}><FaCartPlus/></a>
+            <a href="#ref" className="btn btn-primary" onClick={AddToCart(imgSrc,precio,id,titulo,1)}><FaCartPlus/></a>
             <a href="#ref" className="btn btn-primary" id="btn-star"><FaStar/></a>
         </div>
     </div>
