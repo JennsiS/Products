@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 import { FaCartPlus, FaStar } from 'react-icons/fa';
+import AddToCart from './AddToCart';
 
 export default function ProductCard(props) {
   const { imgSrc } = props;
@@ -15,7 +16,7 @@ export default function ProductCard(props) {
             <h5 className="card-title">{titulo}</h5>
             <h5 className="card-title">{"$"+ precio}</h5>
             <p className="card-text">{descripcion}</p>
-            <a href="#ref" className="btn btn-primary"><FaCartPlus/></a>
+            <a href="#ref" className="btn btn-primary" onClick={AddToCart}><FaCartPlus/></a>
             <a href="#ref" className="btn btn-primary" id="btn-star"><FaStar/></a>
         </div>
     </div>

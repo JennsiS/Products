@@ -23,8 +23,19 @@ export default function Catalogo() {
     { id:7 , nombre: 'test_item', precio: 8000, descripcion: 'test_desc', img: prod1, categoria:'tecnologia'},
     { id:8 , nombre: 'test_item', precio: 8000, descripcion: 'test_desc', img: prod1, categoria:'tecnologia'},
   ]);
+  const [listCategories, updateCategories] = useState(["Laptops","Phones"]);
 
- 
+ function setCategories(){
+   const item = [];
+   for (let i=0; i<listCategories.length; i+=1){
+    item.push(
+      <li>
+        <a className="dropdown-item" href="#f">{listCategories[i]}</a>
+      </li>
+    );
+   }
+   return item;
+ }
 
   function setCards() {
     const row = [];
@@ -48,9 +59,7 @@ export default function Catalogo() {
     <CHeader/>
     <div className="catalogo-page">
       <div className="spacer_top">
-        
       </div>
-
 
       <input type="text" placeholder="Search..." onChange={event => {setSearchTerm(event.target.value)}}/>
         {products.filter((val) => {
@@ -63,6 +72,14 @@ export default function Catalogo() {
           return <div> {val.nombre}</div>;
         })}
 
+      <div className="dropdown">
+        <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+          Categories
+        </button>
+        <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+          {setCategories()}
+        </ul>
+      </div>
 
         <div id="features">
           <div className="card card-wide">

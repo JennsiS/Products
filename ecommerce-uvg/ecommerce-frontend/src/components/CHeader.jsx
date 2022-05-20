@@ -13,16 +13,6 @@ export default function CHeader(props) {
             <button type="button" id="nav_button"> Home </button>
             <button type="button" id="nav_button"> Browse </button>
           </ul>
-          <div className="dropdown">
-            <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-              Categories
-            </button>
-            <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-              <li><a className="dropdown-item" href="#f">Action</a></li>
-              <li><a className="dropdown-item" href="#f">Another action</a></li>
-              <li><a className="dropdown-item" href="#f">Something else here</a></li>
-            </ul>
-          </div>
           <div className="__bar" />
           <ul className="nav_list">
             <button type="button" id="nav_button"> Contact </button>
