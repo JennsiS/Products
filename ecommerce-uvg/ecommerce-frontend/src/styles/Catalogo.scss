@@ -37,3 +37,36 @@
     background-color: #f1c40f;
     border-color: #f1c40f;
 }
+
+#gridded_div {
+    grid-template-columns: repeat(3,minmax(0,1fr));
+    align-items: flex-end;
+    display: grid;
+    font-size: 13px !important;
+    padding-bottom: 20px !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+}
+
+.class_center {
+    text-align: center !important;
+}
+
+.class_left {
+    text-align: right !important;
+    padding-right: 10%;
+}
+
+.class_right {
+    text-align: left !important;
+    padding-left: 10%;
+}
+
+.search_bar {
+    width: 100%;
+}
+
+.btn.btn-secondary.dropdown-toggle {
+    background-color: white;
+    color: grey;
+}
