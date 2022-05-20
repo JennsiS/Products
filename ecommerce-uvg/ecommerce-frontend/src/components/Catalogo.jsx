@@ -22,8 +22,9 @@ export default function Catalogo() {
     { id:"7" , nombre: 'test_item', precio: 8000, descripcion: 'test_desc', img: prod1, categoria:'tecnologia'},
     { id:"8" , nombre: 'test_item', precio: 8000, descripcion: 'test_desc', img: prod1, categoria:'tecnologia'},
   ]);
-  const [listCategories, updateCategories] = useState(["Laptops","Phones","tecnologia"]);
+  const [listCategories, updateCategories] = useState(["All","Laptops","Phones","tecnologia"]);
   const [displayProducts, updateDisplayProducts] = useState([...products]);
+  const [searchTerm,setSearchTerm] = useState('');
 
  function setCategories(){
    const item = [];
@@ -32,9 +33,13 @@ export default function Catalogo() {
       <li>
         <a className="dropdown-item" href="#f" onClick={ 
           function() {
-             // updateDisplayProducts([...products])
-             let category = products.filter(products => products.categoria === listCategories[i])
-             updateDisplayProducts([...category])
+             if (listCategories[i]==="All"){
+               let category = products;
+               updateDisplayProducts([...category]);
+             }else{
+               let category = products.filter(products => products.categoria === listCategories[i])
+               updateDisplayProducts([...category])
+             }
             }
           }>{listCategories[i]}</a>
       </li>
@@ -59,7 +64,7 @@ export default function Catalogo() {
     return row;
   }
 
-  const [searchTerm,setSearchTerm] = useState('')
+  
   return (
     <>
     <CHeader/>
@@ -68,7 +73,7 @@ export default function Catalogo() {
       </div>
 
       <input type="text" placeholder="Search..." onChange={event => {setSearchTerm(event.target.value)}}/>
-        {products.filter((val) => {
+        {displayProducts.filter((val) => {
           if (searchTerm ===""){
             return setCards(val)
           } else if (val.nombre.toLowerCase().includes(searchTerm.toLocaleLowerCase())){
