@@ -32,8 +32,8 @@ export default function Catalogo() {
       <li>
         <a className="dropdown-item" href="#f" onClick={ 
           function() {
-             updateDisplayProducts([...products])
-             let category = displayProducts.filter(products => products.categoria === listCategories[i])
+             // updateDisplayProducts([...products])
+             let category = products.filter(products => products.categoria === listCategories[i])
              updateDisplayProducts([...category])
             }
           }>{listCategories[i]}</a>
