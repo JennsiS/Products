@@ -19,7 +19,6 @@ export default function CHeader(props) {
           </ul>
           <a href="#ref" className="btn btn-primary iconHeader" id="btn-cart-header"><FaShoppingCart/></a>
           <a href="#ref" className="btn btn-primary iconHeader" id="btn-star-header"><FaStar/></a>
-          <a href="#ref" className="btn btn-primary" id="btn-menu-header"><FaGripHorizontal/></a>
         </nav>
       </header>
     );

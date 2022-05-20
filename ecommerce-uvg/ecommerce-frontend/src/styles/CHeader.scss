@@ -87,7 +87,7 @@ button:hover {
     border-color: #707070;
 }
 
-.iconHeader{
+.iconHeader {
     color: black;
     background-color: transparent;
     border-color: transparent;
@@ -104,5 +104,24 @@ button:hover {
 #btn-menu-header{
     position: absolute;
     right: 5%
+}
 
+.btn.btn-primary.iconHeader {
+    color: rgba(0, 0, 0, 0.5);
+    background-color: transparent;
+    border-color: transparent;
+    margin-right: 0px;
+    padding-right: 0px;
+}
+
+.btn.btn-primary.iconHeader:hover {
+    color: rgb(0, 0, 0);
+}
+
+.card.card-wide {
+    border-radius: 10px;
+}
+
+.card {
+    border-radius: 10px !important;
 }
