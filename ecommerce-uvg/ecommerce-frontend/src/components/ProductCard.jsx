@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
 import { FaCartPlus, FaStar } from 'react-icons/fa';
-import firebase from "./firebase";
+import firebase from "../firebase";
 
 export default function ProductCard(props) {
   const { imgSrc } = props;

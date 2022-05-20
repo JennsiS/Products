@@ -1,7 +1,7 @@
 import React from "react"
 import "../styles/CHeader.scss"
 import logo from "../imgs/logo.png"
-import { FaGripHorizontal, FaShoppingCart, FaStar } from 'react-icons/fa';
+import { FaShoppingCart, FaStar } from 'react-icons/fa';
 
 export default function CHeader(props) {
     return (
