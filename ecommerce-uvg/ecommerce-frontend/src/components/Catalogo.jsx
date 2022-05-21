@@ -24,7 +24,8 @@ export default function Catalogo() {
   ]);
   const [listCategories, updateCategories] = useState(["All","Laptops","Phones","tecnologia"]);
   const [displayProducts, updateDisplayProducts] = useState([...products]);
-  const [searchTerm,setSearchTerm] = useState('');
+
+  const [search,setSearch] = useState('');
 
  function setCategories(){
    const item = [];
@@ -64,6 +65,29 @@ export default function Catalogo() {
     return row;
   }
 
+
+  function setCardsBySearch(){
+    const row = [];
+    products.map((item) => {
+      if (search !== '' && item.nombre.toLocaleLowerCase().includes(search.toLocaleLowerCase())) {
+        row.push(<Card id={item.id} imgSrc={item.img} titulo={item.nombre} precio={item.precio} descripcion={item.descripcion}/>)
+      }
+      else if (search === '') row.push(<Card id={item.id} imgSrc={item.img} titulo={item.nombre} precio={item.precio} descripcion={item.descripcion}/>)
+    })
+    return row;
+  }
+
+  const searchFilterFunction = (text) => {
+    setSearch(text);
+  }
+
+  function printfunction (){
+    if (search === ''){
+      return setCards()
+    }else {
+      return setCardsBySearch()
+    }
+  }
   
   return (
     <>
@@ -77,16 +101,11 @@ export default function Catalogo() {
           
         </div>
         <div className="class_center">
-          <input className="search_bar" type="text" placeholder="Search..." onChange={event => {setSearchTerm(event.target.value)}}/>
-          {displayProducts.filter((val) => {
-            if (searchTerm ===""){
-              return setCards(val)
-            } else if (val.nombre.toLowerCase().includes(searchTerm.toLocaleLowerCase())){
-              return val
-            }
-          }).map((val,key) => {
-            return <div> {val.nombre}</div>;
-          })}
+          <input className="search_bar" 
+          type="text" 
+          placeholder="Search here ..." 
+          onChange={(text) => searchFilterFunction(text.target.value)}/>
+          
         </div>
         <div className="class_right">
           <div className="dropdown">
@@ -114,7 +133,7 @@ export default function Catalogo() {
        
           
         <div className="catalogo">
-          {setCards()}
+        {printfunction()}
         </div>      
       </div>
     </>
