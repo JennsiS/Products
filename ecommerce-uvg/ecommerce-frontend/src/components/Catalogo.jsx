@@ -27,9 +27,54 @@ export default function Catalogo() {
 
   const [search,setSearch] = useState('');
 
+  const inputRange = document.querySelectorAll(".input-range input");
+  const range = document.querySelector(".slider-filter");
+  const priceInput = document.querySelectorAll(".input-precio input");
+  const priceGap = 1000;
+
+  const [minimo, setMinimo] = useState(0);
+  const [maximo, setMaximo] = useState(8000);
+
+  inputRange.forEach(input =>{
+    input.addEventListener("input", e =>{
+      let minVal = parseInt(inputRange[0].value),
+      maxVal = parseInt(inputRange[1].value)
+
+      if((maxVal - minVal) < priceGap){
+          if(e.target.className === "range-min"){
+            inputRange[0].value = maxVal - priceGap
+          }else{
+            inputRange[1].value = minVal + priceGap;
+          }
+      }else{
+          priceInput[0].value = minVal;
+          priceInput[1].value = maxVal;
+          range.style.left = ((minVal / inputRange[0].max) * 100) + "%";
+          range.style.right = 100 - ((maxVal / inputRange[1].max) * 100) + "%";
+      }
+    });
+  });
+
+  priceInput.forEach(input =>{
+      input.addEventListener("input", e =>{
+          let minPrice = parseInt(priceInput[0].value),
+          maxPrice = parseInt(priceInput[1].value);
+          
+          if((maxPrice - minPrice >= priceGap) && maxPrice <= inputRange[1].max){
+              if(e.target.className === "min"){
+                inputRange[0].value = minPrice;
+                  range.style.left = ((minPrice / inputRange[0].max) * 100) + "%";
+              }else{
+                inputRange[1].value = maxPrice;
+                  range.style.right = 100 - (maxPrice / inputRange[1].max) * 100 + "%";
+              }
+          }
+      });
+  });
+
  function setCategories(){
    const item = [];
-   for (let i=0; i<listCategories.length; i+=1){
+   for (let i=0; i<listCategories.length; i++){
     item.push(
       <li>
         <a className="dropdown-item" href="#f" onClick={ 
@@ -81,11 +126,33 @@ export default function Catalogo() {
     setSearch(text);
   }
 
+  const filterMinPrice = (value) => {
+    value = parseInt(value)
+    setMinimo(value);
+  }
+
+  const filterMaxPrice = (value) => {
+    value = parseInt(value)
+    setMaximo(value);
+  }
+
+  const setCardsBySlider = () =>{
+    let cards = []
+    products.map((item) => {
+      if (item.precio >= minimo && item.precio <= maximo) {
+        cards.push(<Card id={item.id} imgSrc={item.img} titulo={item.nombre} precio={item.precio} descripcion={item.descripcion}/>)
+      }
+    })
+    return cards
+  }
+
   function printfunction (){
-    if (search === ''){
-      return setCards()
-    }else {
+    if (search !== ''){
       return setCardsBySearch()
+    }else if (minimo !== 0 || maximo !== 8000) {
+      return setCardsBySlider()
+    }else {
+      return setCards()
     }
   }
   
@@ -98,7 +165,29 @@ export default function Catalogo() {
 
       <div id="gridded_div">
         <div className="class_left">
-          
+          <div className="wrapper">
+            <header>
+            <h2>Filtrar por precio</h2>
+            </header>
+            <div className="input-precio">
+              <div className="field">
+                <span>Min</span>
+                <input type="number" onChange={(value) => filterMinPrice(value.target.value)} className="min" defaultValue="0" />
+              </div>
+              <div className="separator">-</div>
+              <div className="field max">
+                <span>Max</span>
+                <input type="number" onChange={(value) => filterMaxPrice(value.target.value)} className="max" defaultValue="8000" />
+              </div>
+            </div>
+            <div className="slider">
+              <div className="slider-filter"></div>
+            </div>
+            <div className="input-range">
+              <input type="range" onChange={(value) => filterMinPrice(value.target.value)} className="range-min" min="0" max="8000" defaultValue="0" step="100"/>
+              <input type="range" onChange={(value) => filterMaxPrice(value.target.value)} className="range-max" min="0" max="8000" defaultValue="8000" step="100"/>
+            </div>
+          </div>
         </div>
         <div className="class_center">
           <input className="search_bar" 
