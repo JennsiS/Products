@@ -84,7 +84,10 @@ export default function Catalogo() {
                updateDisplayProducts([...category]);
              }else{
                let category = products.filter(products => products.categoria === listCategories[i])
-               updateDisplayProducts([...category])
+               console.log(category);
+               updateDisplayProducts([...category]);
+               console.log("display");
+               console.log(displayProducts);
              }
             }
           }>{listCategories[i]}</a>
@@ -96,7 +99,7 @@ export default function Catalogo() {
 
   function setCards() {
     const row = [];
-    for (let i = 0; i < displayProducts.length-1; i += 1) {
+    for (let i = 0; i < displayProducts.length; i += 1) {
       const id = displayProducts[i].id;
       const titulo = displayProducts[i].nombre;
       const precio = displayProducts[i].precio;
@@ -167,7 +170,7 @@ export default function Catalogo() {
         <div className="class_left">
           <div className="wrapper">
             <header>
-            <h2>Filtrar por precio</h2>
+            <h2>Price</h2>
             </header>
             <div className="input-precio">
               <div className="field">
