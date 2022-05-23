@@ -177,3 +177,58 @@ input[type="range"]::-moz-range-thumb{
     background-color: white;
     color: grey;
 }
+
+//media queries
+@media only screen and (max-width: 1280px) {
+    .catalogo {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: auto;
+        gap: 1rem;
+        margin: 0 20px;
+    }
+}
+
+@media only screen and (max-width: 1024px) {
+    .catalogo {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto;
+        gap: 1rem;
+        margin: 0 20px;
+    }
+}
+
+@media only screen and (max-width: 720px) {
+    .catalogo {
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: auto;
+        gap: 1rem;
+        margin: 0 20px;
+    }
+
+    .max{
+        align-items: center;
+    }
+
+    input[type="number"]{
+        font-size: 11px;
+    }
+}
+
+@media only screen and (max-width: 565px) {
+    .input-precio{
+        display: inline-block;
+    }
+    .field{
+        display: flex;
+        left: 0;
+    }
+    .separator{
+        margin: auto;
+    }
+    .class_center, .class_right {
+        margin: auto;
+    }
+}
