@@ -1,40 +1,72 @@
 .catalogo-page {
-  background-color: rgb(93, 116, 137);
+    background-color: rgb(93, 116, 137);
 }
 
 .catalogo {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: auto;
-  gap: 1rem;
-  margin: 0 20px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto;
+    gap: 1rem;
+    margin: 0 20px;
 }
 .card {
-  width: 18rem;
-  margin: auto;
-  border-radius: 15px;
-  transition: width 0.2s ease-in;
+    width: 18rem;
+    margin: auto;
+    border-radius: 15px;
 }
 
 .card-img-top {
-  border-radius: 15px;
+    border-radius: 15px;
 }
 
 .spacer_top {
-  padding-top: 40px;
+    padding-top: 40px;
 }
 
 .card-wide {
-  padding-bottom: 20px;
-  width: 70%;
+    padding-bottom: 20px;
+    width: 70%;
 }
 
 #features {
-  padding-bottom: 40px;
+    padding-bottom: 40px;
 }
 
 #btn-star {
-  margin-left: 10px;
-  background-color: #f1c40f;
-  border-color: #f1c40f;
+    margin-left: 10px;
+    background-color: #f1c40f;
+    border-color: #f1c40f;
+}
+
+#gridded_div {
+    grid-template-columns: repeat(3,minmax(0,1fr));
+    align-items: flex-end;
+    display: grid;
+    font-size: 13px !important;
+    padding-bottom: 20px !important;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+}
+
+.class_center {
+    text-align: center !important;
+}
+
+.class_left {
+    text-align: right !important;
+    padding-right: 10%;
+}
+
+.class_right {
+    text-align: left !important;
+    padding-left: 10%;
+}
+
+.search_bar {
+    width: 100%;
+}
+
+.btn.btn-secondary.dropdown-toggle {
+    background-color: white;
+    color: grey;
 }
