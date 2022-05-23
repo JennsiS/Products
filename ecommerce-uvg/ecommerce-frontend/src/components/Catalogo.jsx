@@ -138,7 +138,7 @@ export default function Catalogo() {
 
   const setCardsBySlider = () =>{
     let cards = []
-    products.map((item) => {
+    displayProducts.map((item) => {
       if (item.precio >= minimo && item.precio <= maximo) {
         cards.push(<Card id={item.id} imgSrc={item.img} titulo={item.nombre} precio={item.precio} descripcion={item.descripcion}/>)
       }
