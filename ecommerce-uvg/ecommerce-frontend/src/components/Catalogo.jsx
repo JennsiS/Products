@@ -1,5 +1,9 @@
 import {React, useState} from "react";
 import '../styles/Catalogo.scss'
+import '../styles/Cards.scss'
+import '../styles/SearchBar.scss'
+import '../styles/Pages.scss'
+import '../styles/Drop-down.scss'
 import { FaCartPlus} from 'react-icons/fa';
 import CHeader from './CHeader';
 import Card from './ProductCard';
@@ -12,17 +16,18 @@ import prod4 from "../imgs/prod_4.png"
 
 export default function Catalogo() {
   const [products, setProducts] = useState([
-    { id:"0" , nombre: 'Samsung S5', precio: 300, descripcion: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.', img: prod1, categoria:'tecnologia'},
+    { id:"0" , nombre: 'Samsung S5', precio: 300, descripcion: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.', img: prod1, categoria:'Technology'},
     { id:"1" , nombre: 'Samsung S4', precio: 250, descripcion: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.', img: prod2, categoria:'Phones'},
     { id:"2" , nombre: 'iPhone SE', precio: 400, descripcion: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.', img: prod3, categoria:'Phones'},
-    { id:"3" , nombre: 'iPhone 12', precio: 1000, descripcion: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.', img: prod4, categoria:'tecnologia'},
+    { id:"3" , nombre: 'iPhone 12', precio: 1000, descripcion: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.', img: prod4, categoria:'Technology'},
     { id:"4" , nombre: 'test_item', precio: 8000, descripcion: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.', img: prod1, categoria:'Phones'},
     { id:"5" , nombre: 'test_item', precio: 8000, descripcion: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.', img: prod1, categoria:'Phones'},
-    { id:"6" , nombre: 'test_item', precio: 8000, descripcion: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.', img: prod1, categoria:'tecnologia'},
-    { id:"7" , nombre: 'test_item', precio: 8000, descripcion: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.', img: prod1, categoria:'tecnologia'},
-    { id:"8" , nombre: 'test_item', precio: 8000, descripcion: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.', img: prod1, categoria:'tecnologia'},
+    { id:"6" , nombre: 'test_item', precio: 8000, descripcion: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.', img: prod1, categoria:'Technology'},
+    { id:"7" , nombre: 'test_item', precio: 8000, descripcion: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.', img: prod1, categoria:'Technology'},
+    { id:"8" , nombre: 'test_item', precio: 8000, descripcion: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.', img: prod1, categoria:'Technology'},
+    { id:"9" , nombre: 'PeraPhone', precio: 500, descripcion: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.', img: prod2, categoria:'Phones'},
   ]);
-  const [listCategories, updateCategories] = useState(["All","Laptops","Phones","tecnologia"]);
+  const [listCategories, updateCategories] = useState(["All","Laptops","Phones","Technology"]);
   const [displayProducts, updateDisplayProducts] = useState([...products]);
 
   const [search,setSearch] = useState('');
@@ -98,7 +103,33 @@ export default function Catalogo() {
 
       <div id="gridded_div">
         <div className="class_left">
+<<<<<<< Updated upstream
           
+=======
+          <div className="wrapper">
+            <header>
+            <h2>Filtrar por precio</h2>
+            </header>
+            <div className="input-precio">
+              <div className="field">
+                <span id="minText">Min</span>
+                <input type="number" onChange={(value) => filterMinPrice(value.target.value)} className="min" defaultValue="0" />
+              </div>
+              <div className="separator">-</div>
+              <div id="maxBox" className="field max">
+                <span id="maxNumber">Max</span>
+                <input type="number" onChange={(value) => filterMaxPrice(value.target.value)} className="max" defaultValue="8000" />
+              </div>
+            </div>
+            <div className="slider">
+              <div className="slider-filter"></div>
+            </div>
+            <div className="input-range">
+              <input type="range" onChange={(value) => filterMinPrice(value.target.value)} className="range-min" min="0" max="8000" defaultValue="0" step="100"/>
+              <input type="range" onChange={(value) => filterMaxPrice(value.target.value)} className="range-max" min="0" max="8000" defaultValue="8000" step="100"/>
+            </div>
+          </div>
+>>>>>>> Stashed changes
         </div>
         <div className="class_center">
           <input className="search_bar" 
@@ -119,7 +150,11 @@ export default function Catalogo() {
         </div>
       </div>
 
+<<<<<<< Updated upstream
         <div className="card" id="features">
+=======
+        <div className="not" id="features">
+>>>>>>> Stashed changes
           <div className="card card-wide">
             <h5 className="card-header">Featured</h5>
             <div className="card-body">
@@ -135,6 +170,17 @@ export default function Catalogo() {
         <div className="catalogo">
         {printfunction()}
         </div>      
+
+        <div class="pagination">
+        <a href="#">&laquo;</a>
+        <a href="#">1</a>
+        <a href="#">2</a>
+        <a href="#">3</a>
+        <a href="#">4</a>
+        <a href="#">5</a>
+        <a href="#">6</a>
+        <a href="#">&raquo;</a>
+      </div>
       </div>
     </>
   );
