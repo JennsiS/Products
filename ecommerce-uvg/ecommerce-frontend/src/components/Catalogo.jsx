@@ -10,24 +10,19 @@ import '../styles/Drop-down.scss'
 import { db } from '../firebase';
 
 
-import prod1 from "../imgs/prod_1.png"
-import prod2 from "../imgs/prod_2.png"
-import prod3 from "../imgs/prod_3.png"
-import prod4 from "../imgs/prod_4.png"
-
-//const { collection, getDocs, doc, getDoc } = require("firebase/firestore");
+// import prod1 from "../imgs/prod_1.png"
+// import prod2 from "../imgs/prod_2.png"
+// import prod3 from "../imgs/prod_3.png"
+// import prod4 from "../imgs/prod_4.png"
 
 async function  getData(){
 
   let data = [];
-
-
-
   let col = db.collection('inventario');
   let datos = await col.get();
 
   datos.docs.forEach(item=>{data.push(item.data())})
-  //console.log("data",data);
+  console.log("data",data);
 
   return(data)
 
@@ -47,15 +42,43 @@ export default function Catalogo() {
   //   { id:"8" , nombre: 'test_item', precio: 8000, descripcion: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.', img: prod1, categoria:'tecnologia'},
   // ]);
 
+  function onlyUnique(value, index, self) {
+    return self.indexOf(value) === index;
+  }
+
+  // function getCategories(){
+  //   let categories = [];
+  //   let uniqueCategories = [];
+  //    for (let i = 0; i < listCategories.length; i += 1) {
+  //     categories.push(listCategories[i].categoria);
+  //   }
+  //   uniqueCategories = onlyUnique(categories)
+  //   return uniqueCategories;
+  // }
+  
   const [products, setProducts] = useState([]);
+  const [listCategories, updateCategories] = useState([]);
 
   useEffect(()=>{
-    getData().then(res => {setProducts(res);updateDisplayProducts(res)})
+    getData().then(res => {
+    setProducts(res);
+    updateDisplayProducts(res);
+    let categories = []
+    let uniqueCategories = []
+     for (let i = 0; i < res.length; i += 1) {
+       if (!categories.includes(res[i].categoria)){
+        categories.push(res[i].categoria);
+       }
+    }
+    //uniqueCategories = onlyUnique(categories)
+    updateCategories(categories)
+  })
   }, [])
 
 
-  const [listCategories, updateCategories] = useState(["All","Laptops","Phones","tecnologia"]);
+  //const [listCategories, updateCategories] = useState(["All","Laptops","Phones","tecnologia"]);
   const [displayProducts, updateDisplayProducts] = useState([...products]);
+  
 
   const [search,setSearch] = useState('');
 
