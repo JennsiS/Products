@@ -13,10 +13,23 @@
     width: 18rem;
     margin: auto;
     border-radius: 15px;
+    height: 550px;
 }
+
+.desc{
+    overflow-y:scroll ;
+    height: 75px;
+}
+
+.desc::-webkit-scrollbar {
+    display: none;
+}
+
 
 .card-img-top {
     border-radius: 15px;
+    max-height: 300px;
+    padding: 10px;
 }
 
 .spacer_top {
@@ -130,6 +143,12 @@ input[type="number"]::-webkit-inner-spin-button{
     position: absolute;
     left: 0;
     right: 0;
+}
+
+.divbtn{
+    margin-left: 5%;
+    margin-bottom: 5%;
+    
 }
 
 .input-range{

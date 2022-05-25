@@ -30,9 +30,14 @@ export default function ProductCard(props) {
         <div className="card-body">
             <h5 className="card-title">{titulo}</h5>
             <h5 className="card-title">{"$"+ precio}</h5>
-            <p className="card-text">{descripcion}</p>
-            <a href="#ref" className="btn btn-primary" onClick={() => {addCompra("img",precio,id,titulo,1)}}><FaCartPlus/></a>
-            <a href="#ref" className="btn btn-primary" id="btn-star"><FaStar/></a>
+            <div className="desc">
+              <p className="card-text">{descripcion}</p>
+            </div>
+            
+        </div>
+        <div className = "divbtn">
+          <a href="#ref" className="btn btn-primary btncard" onClick={() => {addCompra("img",precio,id,titulo,1)}}><FaCartPlus/></a>
+          <a href="#ref" className="btn btn-primary btncard" id="btn-star"><FaStar/></a>
         </div>
     </div>
     
