@@ -1,4 +1,4 @@
-import {React, useState} from "react";
+import {React, useState, useEffect} from "react";
 import '../styles/Catalogo.scss'
 import { FaCartPlus} from 'react-icons/fa';
 import CHeader from './CHeader';
@@ -7,6 +7,7 @@ import '../styles/Cards.scss'
 import '../styles/SearchBar.scss'
 import '../styles/Pages.scss'
 import '../styles/Drop-down.scss'
+import { db } from '../firebase';
 
 
 import prod1 from "../imgs/prod_1.png"
@@ -14,19 +15,45 @@ import prod2 from "../imgs/prod_2.png"
 import prod3 from "../imgs/prod_3.png"
 import prod4 from "../imgs/prod_4.png"
 
+//const { collection, getDocs, doc, getDoc } = require("firebase/firestore");
+
+async function  getData(){
+
+  let data = [];
+
+
+
+  let col = db.collection('inventario');
+  let datos = await col.get();
+
+  datos.docs.forEach(item=>{data.push(item.data())})
+  //console.log("data",data);
+
+  return(data)
+
+}
+
 
 export default function Catalogo() {
-  const [products, setProducts] = useState([
-    { id:"0" , nombre: 'Samsung S5', precio: 300, descripcion: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.', img: prod1, categoria:'tecnologia'},
-    { id:"1" , nombre: 'Samsung S4', precio: 250, descripcion: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.', img: prod2, categoria:'Phones'},
-    { id:"2" , nombre: 'iPhone SE', precio: 400, descripcion: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.', img: prod3, categoria:'Phones'},
-    { id:"3" , nombre: 'iPhone 12', precio: 1000, descripcion: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.', img: prod4, categoria:'tecnologia'},
-    { id:"4" , nombre: 'test_item', precio: 8000, descripcion: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.', img: prod1, categoria:'Phones'},
-    { id:"5" , nombre: 'test_item', precio: 8000, descripcion: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.', img: prod1, categoria:'Phones'},
-    { id:"6" , nombre: 'test_item', precio: 8000, descripcion: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.', img: prod1, categoria:'tecnologia'},
-    { id:"7" , nombre: 'test_item', precio: 8000, descripcion: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.', img: prod1, categoria:'tecnologia'},
-    { id:"8" , nombre: 'test_item', precio: 8000, descripcion: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.', img: prod1, categoria:'tecnologia'},
-  ]);
+  // const [products, setProducts] = useState([
+  //   { id:"0" , nombre: 'Samsung S5', precio: 300, descripcion: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.', img: prod1, categoria:'tecnologia'},
+  //   { id:"1" , nombre: 'Samsung S4', precio: 250, descripcion: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.', img: prod2, categoria:'Phones'},
+  //   { id:"2" , nombre: 'iPhone SE', precio: 400, descripcion: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.', img: prod3, categoria:'Phones'},
+  //   { id:"3" , nombre: 'iPhone 12', precio: 1000, descripcion: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.', img: prod4, categoria:'tecnologia'},
+  //   { id:"4" , nombre: 'test_item', precio: 8000, descripcion: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.', img: prod1, categoria:'Phones'},
+  //   { id:"5" , nombre: 'test_item', precio: 8000, descripcion: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.', img: prod1, categoria:'Phones'},
+  //   { id:"6" , nombre: 'test_item', precio: 8000, descripcion: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.', img: prod1, categoria:'tecnologia'},
+  //   { id:"7" , nombre: 'test_item', precio: 8000, descripcion: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.', img: prod1, categoria:'tecnologia'},
+  //   { id:"8" , nombre: 'test_item', precio: 8000, descripcion: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.', img: prod1, categoria:'tecnologia'},
+  // ]);
+
+  const [products, setProducts] = useState([]);
+
+  useEffect(()=>{
+    getData().then(res => {setProducts(res);updateDisplayProducts(res)})
+  }, [])
+
+
   const [listCategories, updateCategories] = useState(["All","Laptops","Phones","tecnologia"]);
   const [displayProducts, updateDisplayProducts] = useState([...products]);
 
@@ -108,7 +135,7 @@ export default function Catalogo() {
       const id = displayProducts[i].id;
       const titulo = displayProducts[i].nombre;
       const precio = displayProducts[i].precio;
-      const img = displayProducts[i].img;
+      const img = displayProducts[i].imagen;
       const descripcion = displayProducts[i].descripcion;
       row.push(
         
