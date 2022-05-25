@@ -138,14 +138,15 @@ export default function Catalogo() {
   function setCards() {
     const row = [];
     for (let i = 0; i < displayProducts.length; i += 1) {
-      const id = displayProducts[i].id;
+      const id = displayProducts[i].ID;
       const titulo = displayProducts[i].nombre;
       const precio = displayProducts[i].precio;
       const img = displayProducts[i].imagen;
       const descripcion = displayProducts[i].descripcion;
+      const cantidad = displayProducts[i].cantidad;
       row.push(
         
-        <Card id={id} imgSrc={img} titulo={titulo} precio={precio} descripcion={descripcion}/>
+        <Card id={id} imgSrc={img} titulo={titulo} precio={precio} cantidad={cantidad} descripcion={descripcion}/>
       );
     }
     return row;
