@@ -157,9 +157,9 @@ export default function Catalogo() {
     const row = [];
     products.map((item) => {
       if (search !== '' && item.nombre.toLocaleLowerCase().includes(search.toLocaleLowerCase())) {
-        row.push(<Card id={item.id} imgSrc={item.img} titulo={item.nombre} precio={item.precio} descripcion={item.descripcion}/>)
+        row.push(<Card id={item.ID} imgSrc={item.img} titulo={item.nombre} precio={item.precio} descripcion={item.descripcion} cantidad={item.cantidad}/>)
       }
-      else if (search === '') row.push(<Card id={item.id} imgSrc={item.img} titulo={item.nombre} precio={item.precio} descripcion={item.descripcion}/>)
+      else if (search === '') row.push(<Card id={item.ID} imgSrc={item.img} titulo={item.nombre} precio={item.precio} descripcion={item.descripcion} cantidad={item.cantidad}/>)
     })
     return row;
   }
@@ -182,7 +182,7 @@ export default function Catalogo() {
     let cards = []
     displayProducts.map((item) => {
       if (item.precio >= minimo && item.precio <= maximo) {
-        cards.push(<Card id={item.id} imgSrc={item.img} titulo={item.nombre} precio={item.precio} descripcion={item.descripcion}/>)
+        cards.push(<Card id={item.ID} imgSrc={item.img} titulo={item.nombre} precio={item.precio} descripcion={item.descripcion} cantidad={item.cantidad}/>)
       }
     })
     return cards
