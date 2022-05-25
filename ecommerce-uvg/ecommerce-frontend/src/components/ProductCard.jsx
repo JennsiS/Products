@@ -11,7 +11,7 @@ export default function ProductCard(props) {
   const { id } = props;
 
   function addCompra(imagen, precio, itemcode, nombre, cantidad_disponible) {
-    console.log("added prod")
+    alert(`${nombre} added to cart!`);
     firebase.firestore().collection('carrito').doc('ZsuFnGu76TWPQus6xGce').set(
         {items: firebase.firestore.FieldValue.arrayUnion( {
                 "imagen":imagen, //Str: url de imagen
