@@ -1,0 +1,13 @@
+#root .catalogo-page .card:not(.not .card):hover {
+    width: 21rem;
+    margin: auto;
+    border-radius: 15px;
+
+    opacity: 0.50;
+}
+
+#root .catalogo-page .card:not(.not .card) {
+  margin: auto;
+  border-radius: 15px;
+  transition: 0.2s ease-in-out;
+}

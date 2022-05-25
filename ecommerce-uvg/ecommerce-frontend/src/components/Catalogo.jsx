@@ -3,6 +3,11 @@ import '../styles/Catalogo.scss'
 import { FaCartPlus} from 'react-icons/fa';
 import CHeader from './CHeader';
 import Card from './ProductCard';
+import '../styles/Cards.scss'
+import '../styles/SearchBar.scss'
+import '../styles/Pages.scss'
+import '../styles/Drop-down.scss'
+
 
 import prod1 from "../imgs/prod_1.png"
 import prod2 from "../imgs/prod_2.png"
@@ -211,7 +216,7 @@ export default function Catalogo() {
         </div>
       </div>
 
-        <div id="features">
+        <div className="not" id="features">
           <div className="card card-wide">
             <h5 className="card-header">Featured</h5>
             <div className="card-body">
