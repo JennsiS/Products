@@ -1,0 +1,36 @@
+$primary: #e0e0e0;
+
+
+.search_bar{
+    border:  none;
+    border-radius: 4px;
+    font-size: 1rem;
+    padding: 0.5rem;
+    transition: border-color 0.5s ease-out;
+
+    
+}
+
+.search_bar:focus{
+
+    &::placeholder{
+        color: transparent;
+    }
+    border: white 2px solid;
+    outline: none;
+    border-radius: 6px;
+
+
+}
+
+
+input[type="number"] {
+    border: none;
+    font-size: 1rem;
+    outline: none;
+}
+
+#maxBox #maxNumber{
+    justify-content: end;
+}
+
